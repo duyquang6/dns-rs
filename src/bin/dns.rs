@@ -9,5 +9,8 @@ async fn main() {
         let mut buf = [0; 1024];
         let (amt, src) = socket.recv_from(&mut buf).await.unwrap();
         println!("Received {} bytes from {}", amt, src);
+
+        let hex_str = hex::encode(&buf[..amt]);
+        println!("{}", hex_str);
     }
 }
